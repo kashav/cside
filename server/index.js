@@ -15,8 +15,14 @@ app.get("/injected-scripts", (req, res) => {
 
 app.post("/injected-scripts", (req, res) => {
   const { href, src, script } = req.body;
+
+  if (!(href && src && script)) {
+    res.status(400).send({ message: "Missing an expected field." });
+    return;
+  }
+
   injectedScripts.push({ href, src, script, timestamp: Date.now() });
-  res.status(200).send({ message: "Data received successfully!" });
+  res.status(200).send({ message: "Data received successfully." });
 });
 
 app.listen(PORT, () => {
