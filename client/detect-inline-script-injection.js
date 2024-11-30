@@ -1,6 +1,6 @@
 import { observeNewScriptNodesInDocument } from "./utils";
 
-const LOG_URL = "https://kashav.ca/cside/log";
+const LOG_URL = "https://kashav.ca/cside/injected-scripts";
 
 // Detects and reports inline-script injection. Also upload the content to an
 // endpoint via a beacon.
