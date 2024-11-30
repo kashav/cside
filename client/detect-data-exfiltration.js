@@ -17,6 +17,8 @@ export function initDataExfiltrationDetection() {
   Object.defineProperty(HTMLInputElement.prototype, "value", {
     get: function () {
       const value = originalDescriptor.get.call(this);
+      // We can also inspect the input field and decide if this is a
+      // sensitive field based on various heuristics.
       recordInputElementValueRead(this, value);
       return value;
     },
