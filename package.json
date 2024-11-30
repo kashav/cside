@@ -1,0 +1,36 @@
+{
+  "name": "security-detection-methods",
+  "version": "1.0.0",
+  "description": "Various security detection mechanisms for client-side browser attack methods.",
+  "main": "src/index.js",
+  "scripts": {
+    "build": "webpack --mode production",
+    "build-dev": "webpack --mode development",
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "lint": "prettier --write client/**/*.js server/**/*.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com/kashav/detector.git"
+  },
+  "author": "Kashav Madan",
+  "license": "GPL-3.0-or-later",
+  "bugs": {
+    "url": "https://github.com/kashav/detector/issues"
+  },
+  "homepage": "https://github.com/kashav/detector#readme",
+  "devDependencies": {
+    "@babel/core": "^7.26.0",
+    "@babel/preset-env": "^7.26.0",
+    "babel-loader": "^9.2.1",
+    "clean-webpack-plugin": "^4.0.0",
+    "prettier": "^3.3.3",
+    "webpack": "^5.96.1",
+    "webpack-cli": "^5.1.4"
+  },
+  "dependencies": {
+    "body-parser": "^1.20.3",
+    "cors": "^2.8.5",
+    "express": "^4.21.1"
+  }
+}

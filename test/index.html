@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+</head>
+<body>
+      <div>
+        <input type="text" id="name" name="name" placeholder="Input" />
+
+        <br>
+        <button onclick="addEventListenerToInput()">Add event listener</button>
+        <button onclick="readInputValue()">Read input value</button>
+
+        <br>
+        <br>
+
+        <button onclick="injectInlineScript()">Inject inline script</button>
+        <button onclick="injectScriptWithSrc()">Inject script with src</button>
+      </div>
+
+      <script src="dist/main.js"></script>
+
+      <script>
+        function addEventListenerToInput() {
+            const input = document.querySelector("input");
+            input.addEventListener("keydown", e => { e });
+        }
+
+        function readInputValue() {
+            const input = document.querySelector("input");
+            input.value;
+        }
+
+        function injectInlineScript() {
+            const newDiv = document.createElement("div");
+            const newScript = document.createElement("script");
+            newScript.innerText = `console.log("hello");`;
+            newDiv.appendChild(newScript);
+            document.body.appendChild(newDiv);
+        }
+
+        function injectScriptWithSrc() {
+            const newScript = document.createElement("script");
+            newScript.src = "dist/main.js";
+            document.body.appendChild(newScript);
+        }
+      </script>
+    </body>
+</html>
