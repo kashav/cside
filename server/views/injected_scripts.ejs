@@ -1,0 +1,16 @@
+<table>
+    <tr>
+        <th>Page URL</th>
+        <th>Script name</th>
+        <th>Script content</th>
+        <th>Timestamp</th>
+    </tr>
+    <% for(var i=0; i < injectedScripts.length; i++) { %>
+        <tr>
+            <td><%= injectedScripts[i].href %></td>
+            <td><%= injectedScripts[i].src %></td>
+            <td><%= injectedScripts[i].script %></td>
+            <td><%= injectedScripts[i].timestamp %></td>
+        </tr>
+    <% } %>
+</table>

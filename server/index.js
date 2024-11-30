@@ -1,17 +1,21 @@
-import express, { json } from "express";
-import cors from "cors";
+const express = require("express");
+const cors = require("cors");
 
 const PORT = 3000;
+const injectedScripts = [];
 
 const app = express();
-
-app.use(json());
-
+app.set("view engine", "ejs");
+app.use(express.json());
 app.use(cors({ origin: true, credentials: true }));
 
+app.get("/injected-scripts", (req, res) => {
+  res.render("injected_scripts", { injectedScripts });
+});
+
 app.post("/injected-scripts", (req, res) => {
-  const { src, script } = req.body;
-  console.log(`Got injected script: src="${src}" script="${script}"`);
+  const { href, src, script } = req.body;
+  injectedScripts.push({ href, src, script, timestamp: Date.now() });
   res.status(200).send({ message: "Data received successfully!" });
 });
 

@@ -38,7 +38,8 @@ export function initInlineScriptInjectionDetection() {
       });
 
       const payload = JSON.stringify({
-        src: src || "inline_script",
+        href: window.location.href,
+        src: src || "inline script",
         script: scriptContent,
       });
       const blob = new Blob([payload], { type: "application/json" });
